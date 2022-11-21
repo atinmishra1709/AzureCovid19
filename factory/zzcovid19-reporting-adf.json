@@ -1,0 +1,9 @@
+{
+	"name": "zzcovid19-reporting-adf",
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "bc6a8f66-0839-43e0-ac2f-2497b28773ba",
+		"tenantId": "4b3b0a3a-b0a2-4d70-8e2d-10f260afc770"
+	}
+}
