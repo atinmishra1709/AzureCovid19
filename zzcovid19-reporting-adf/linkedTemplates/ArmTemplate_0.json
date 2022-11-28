@@ -18,6 +18,10 @@
 		"ls_adls_zzcovid19reportingdl_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://zzcovid19reportingdl.dfs.core.windows.net/"
+		},
+		"tr_Populate_Data_OnCreation_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/717e6461-7cbb-41ec-bbe1-653b0bc6179f/resourceGroups/covid19-reporting-rg/providers/Microsoft.Storage/storageAccounts/zzcovid19reportingsa"
 		}
 	},
 	"variables": {
@@ -167,6 +171,7 @@
 							],
 							"storeSettings": {
 								"type": "AzureBlobStorageReadSettings",
+								"recursive": true,
 								"enablePartitionDiscovery": false
 							},
 							"formatSettings": {
@@ -314,13 +319,11 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/tr_populate_data')]",
+			"name": "[concat(parameters('factoryName'), '/tr_Populate_Data_OnCreation')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"annotations": [
-					"Check"
-				],
+				"annotations": [],
 				"runtimeState": "Started",
 				"pipelines": [
 					{
@@ -331,14 +334,14 @@
 						"parameters": {}
 					}
 				],
-				"type": "ScheduleTrigger",
+				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 5,
-						"startTime": "2022-11-28T19:56:00",
-						"timeZone": "GMT Standard Time"
-					}
+					"blobPathBeginsWith": "/population/blobs/population_by_age.tsv.gz",
+					"ignoreEmptyBlobs": false,
+					"scope": "[parameters('tr_Populate_Data_OnCreation_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
 				}
 			},
 			"dependsOn": [
