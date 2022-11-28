@@ -17,8 +17,8 @@
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Minute",
-				"interval": 15,
-				"startTime": "2022-11-28T19:50:00",
+				"interval": 5,
+				"startTime": "2022-11-28T19:56:00",
 				"timeZone": "GMT Standard Time"
 			}
 		}
