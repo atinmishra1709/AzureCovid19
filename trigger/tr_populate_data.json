@@ -1,0 +1,19 @@
+{
+	"name": "tr_populate_data",
+	"properties": {
+		"annotations": [
+			"Check"
+		],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2022-11-28T19:50:00",
+				"timeZone": "GMT Standard Time"
+			}
+		}
+	}
+}
