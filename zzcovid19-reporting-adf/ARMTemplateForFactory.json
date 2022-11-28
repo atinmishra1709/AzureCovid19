@@ -312,6 +312,38 @@
 				"[concat(variables('factoryId'), '/datasets/ds_population_raw_gz')]",
 				"[concat(variables('factoryId'), '/datasets/ds_population_raw_tsv')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/tr_populate_data')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [
+					"Check"
+				],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pl_ingest_population_data",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 15,
+						"startTime": "2022-11-28T19:50:00",
+						"timeZone": "GMT Standard Time"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_ingest_population_data')]"
+			]
 		}
 	]
 }
