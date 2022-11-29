@@ -16,6 +16,9 @@
 		},
 		"tr_Populate_Data_OnCreation_properties_typeProperties_scope": {
 			"value": "/subscriptions/717e6461-7cbb-41ec-bbe1-653b0bc6179f/resourceGroups/covid19-reporting-rg/providers/Microsoft.Storage/storageAccounts/zzcovid19reportingsa"
+		},
+		"ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
 		}
 	}
 }

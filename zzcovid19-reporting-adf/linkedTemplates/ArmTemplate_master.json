@@ -23,6 +23,10 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/717e6461-7cbb-41ec-bbe1-653b0bc6179f/resourceGroups/covid19-reporting-rg/providers/Microsoft.Storage/storageAccounts/zzcovid19reportingsa"
 		},
+		"ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -58,6 +62,9 @@
 					},
 					"ls_adls_zzcovid19reportingdl_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_zzcovid19reportingdl_properties_typeProperties_url')]"
+					},
+					"ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url')]"
 					},
 					"tr_Populate_Data_OnCreation_properties_typeProperties_scope": {
 						"value": "[parameters('tr_Populate_Data_OnCreation_properties_typeProperties_scope')]"
