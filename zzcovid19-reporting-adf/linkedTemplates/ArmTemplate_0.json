@@ -713,7 +713,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/tr_ingest_hospital_data')]",
+			"name": "[concat(parameters('factoryName'), '/tr_ingest_ecdc_data')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -733,8 +733,9 @@
 					"recurrence": {
 						"frequency": "Day",
 						"interval": 1,
-						"startTime": "2022-11-29T16:30:00Z",
-						"timeZone": "UTC"
+						"startTime": "2022-11-29T22:59:00Z",
+						"timeZone": "UTC",
+						"schedule": {}
 					}
 				}
 			},
