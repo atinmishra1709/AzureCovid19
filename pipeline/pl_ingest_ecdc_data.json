@@ -1,5 +1,5 @@
 {
-	"name": "pl_ingest_cases_death_data",
+	"name": "pl_ingest_ecdc_data",
 	"properties": {
 		"activities": [
 			{
@@ -48,11 +48,11 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_cases_death_raw_csv_http",
+						"referenceName": "ds_ecdc_raw_csv_http",
 						"type": "DatasetReference",
 						"parameters": {
 							"RelativeURL": {
-								"value": "@variables('SourceRelativeURL')",
+								"value": "@pipeline().parameters.SourceRelativeURL",
 								"type": "Expression"
 							}
 						}
@@ -60,11 +60,11 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_cases_death_raw_csv_dl",
+						"referenceName": "ds_ecdc_raw_csv_dl",
 						"type": "DatasetReference",
 						"parameters": {
 							"filename": {
-								"value": "@variables('SinkFileName')",
+								"value": "@pipeline().parameters.SinkFileName",
 								"type": "Expression"
 							}
 						}
@@ -73,14 +73,12 @@
 			}
 		],
 		"concurrency": 1,
-		"variables": {
+		"parameters": {
 			"SourceRelativeURL": {
-				"type": "String",
-				"defaultValue": "cloudboxacademy/covid19/main/raw/main/ecdc_data/hospital_admissions.csv"
+				"type": "string"
 			},
 			"SinkFileName": {
-				"type": "String",
-				"defaultValue": "hospital_admissions.csv"
+				"type": "string"
 			}
 		},
 		"annotations": []
